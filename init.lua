@@ -16,6 +16,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.cmd(':au BufRead,BufEnter *.component.html set filetype=angular')
+vim.cmd(':au BufWritePre *.ts,*.html Prettier')
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -37,7 +38,9 @@ require('lazy').setup({
   -- TODO: Add debugging for Java
   -- require 'kickstart.plugins.debug',
 
-  { import = 'custom.plugins' },
+  { import = 'custom.plugins',
+    change_detection = { enabled = false }
+  },
 }, {})
 
 -- [[ Setting options ]]
