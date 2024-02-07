@@ -1,7 +1,10 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    { 'williamboman/mason.nvim', config = true },
+    {
+      'williamboman/mason.nvim',
+      config = true
+    },
     'williamboman/mason-lspconfig.nvim',
     { 'j-hui/fidget.nvim',       opts = {} },
     'folke/neodev.nvim',
@@ -57,33 +60,22 @@ return {
       ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
       ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
     }
-    -- register which-key VISUAL mode
-    -- required for visual <leader>hs (hunk stage) to work
+
     require('which-key').register({
       ['<leader>'] = { name = 'VISUAL <leader>' },
       ['<leader>h'] = { 'Git [H]unk' },
     }, { mode = 'v' })
 
-    -- mason-lspconfig requires that these setup functions are called in this order
-    -- before setting up the servers.
     require('mason').setup()
     require('mason-lspconfig').setup()
 
-    -- Enable the following language servers
-    --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-    --
-    --  Add any additional override configuration in the following tables. They will be passed to
-    --  the `settings` field of the server config. You must look up that documentation yourself.
-    --
-    --  If you want to override the default filetypes that your language server will attach to you can
-    --  define the property 'filetypes' to the map in question.
     local servers = {
       rust_analyzer = {},
       tsserver = {},
       html = { filetypes = { 'html'} },
       angularls = { filetypes = { 'angular', 'typescript' } },
       emmet_ls = { filetypes = { 'html', 'angular', 'scss', 'css' } },
-      -- java_language_server = {}, Not working atm
+      jdtls = {},
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },

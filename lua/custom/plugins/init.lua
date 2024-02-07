@@ -32,7 +32,9 @@ return {
     main = 'ibl',
     opts = {},
   },
-  'prettier/vim-prettier',
+  {
+    'prettier/vim-prettier',
+  },
   -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     'folke/todo-comments.nvim',
