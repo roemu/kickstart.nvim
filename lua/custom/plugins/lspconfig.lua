@@ -5,7 +5,14 @@ return {
       'williamboman/mason.nvim',
       config = true
     },
-    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason-lspconfig.nvim', 
+    opts = {
+        handlers = {
+          ["jdtls"] = function ()
+            require("java").setup() 
+          end
+        }
+      }},
     { 'j-hui/fidget.nvim',       opts = {} },
     'folke/neodev.nvim',
   },
