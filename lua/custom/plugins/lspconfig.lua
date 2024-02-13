@@ -5,16 +5,19 @@ return {
       'williamboman/mason.nvim',
       config = true
     },
-    { 'williamboman/mason-lspconfig.nvim', 
+    { 'williamboman/mason-lspconfig.nvim',
     opts = {
         handlers = {
           ["jdtls"] = function ()
-            require("java").setup() 
+            require("java").setup()
           end
         }
       }},
     { 'j-hui/fidget.nvim',       opts = {} },
     'folke/neodev.nvim',
+  },
+  opts = {
+    inlay_hints = { enabled = true }
   },
   config = function()
     local on_attach = function(_, bufnr)

@@ -4,18 +4,20 @@ vim.g.maplocalleader = ' '
 vim.opt.relativenumber = true
 vim.opt.number = true
 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "N", "Nzz")
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-o>', '<C-o>zz')
+vim.keymap.set('n', '*', '*zz')
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')
 
-vim.cmd(':au BufRead,BufEnter *.component.html set filetype=angular')
-vim.cmd(':au BufWritePre *.ts,*.html Prettier')
+-- vim.cmd(':au BufRead,BufEnter *.component.html set filetype=angular')
+-- vim.cmd(':au BufWritePre *.ts,*.html Prettier')
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -64,3 +66,15 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+-- requires telescope
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'TelescopeResults',
+  callback = function(ctx)
+    vim.api.nvim_buf_call(ctx.buf, function()
+      vim.fn.matchadd('TelescopeParent', '\t\t.*$')
+      vim.api.nvim_set_hl(0, 'TelescopeParent', { link = 'Comment' })
+    end)
+  end,
+})
+-- end telescope requirement

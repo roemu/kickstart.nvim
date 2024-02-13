@@ -7,7 +7,7 @@ return {
   'tpope/vim-sleuth',
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   { 'numToStr/Comment.nvim', opts = {} },
   {
     -- Autocompletion
@@ -39,9 +39,9 @@ return {
   {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {}
+    opts = {},
   },
 
   -- fun stuff
-  { 'ThePrimeagen/vim-be-good'}
+  { 'ThePrimeagen/vim-be-good' },
 }

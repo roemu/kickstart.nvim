@@ -1,5 +1,6 @@
-require('custom.options.vim-options')
--- require('custom.options.cmp')
+require 'custom.options.vim-options'
+
+-- TODO: Trouble seems needed for java.
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -16,13 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   require 'kickstart.plugins.autoformat',
+  require 'kickstart.plugins.debug',
 
-  -- TODO: Add debugging for Java
-  -- require 'kickstart.plugins.debug',
-
-  { import = 'custom.plugins',
-    change_detection = { notification = false }
-  },
+  { import = 'custom.plugins', change_detection = { notification = false } },
+  -- { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
+  -- { import = 'lazyvim.plugins.extras.formatting.prettier' },
 }, {})
 
 -- cmp config
