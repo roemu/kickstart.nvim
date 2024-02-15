@@ -1,8 +1,12 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1;
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.scrolloff = 5
 
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
@@ -13,8 +17,7 @@ vim.keymap.set('n', '*', '*zz')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
--- vim.cmd(':au BufRead,BufEnter *.component.html set filetype=angular')
--- vim.cmd(':au BufWritePre *.ts,*.html Prettier')
+vim.cmd(':au BufRead,BufEnter *.component.html set filetype=angular')
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
@@ -55,8 +58,8 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<leader>ef', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = 'Open error diagnostics list' })
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -78,3 +81,4 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 -- end telescope requirement
+

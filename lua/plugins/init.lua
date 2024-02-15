@@ -33,10 +33,6 @@ return {
     opts = {},
   },
   {
-    'prettier/vim-prettier',
-  },
-  -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-  {
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},

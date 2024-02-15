@@ -1,4 +1,4 @@
-require 'custom.options.vim-options'
+require('options.vim-options')
 
 -- TODO: Trouble seems needed for java.
 
@@ -16,13 +16,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  require 'kickstart.plugins.autoformat',
-  require 'kickstart.plugins.debug',
-
-  { import = 'custom.plugins', change_detection = { notification = false } },
-  -- { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
-  -- { import = 'lazyvim.plugins.extras.formatting.prettier' },
-}, {})
+  { import = 'plugins'},
+  { import = 'color'},
+  { import = 'debuggers'},
+  { import = 'formatters'},
+  { import = 'langs'},
+  { import = 'lspconfig'},
+}, {
+    change_detection = {
+      notify = false,
+    },
+  })
 
 -- cmp config
 local cmp = require 'cmp'
