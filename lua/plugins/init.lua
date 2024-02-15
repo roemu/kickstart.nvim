@@ -37,6 +37,7 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
+  { 'towolf/vim-helm' },
 
   -- fun stuff
   { 'ThePrimeagen/vim-be-good' },
