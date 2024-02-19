@@ -10,11 +10,11 @@ return {
     },
     { 'williamboman/mason-lspconfig.nvim',
     opts = {
-        handlers = {
-          ["jdtls"] = function ()
-            require("java").setup()
-          end
-        }
+        -- handlers = {
+        --   ["jdtls"] = function ()
+        --     require("java").setup()
+        --   end
+        -- }
       }},
     { 'j-hui/fidget.nvim',       opts = {} },
     'folke/neodev.nvim',
@@ -83,7 +83,7 @@ return {
       html = { filetypes = { 'html'} },
       angularls = { filetypes = { 'angular', 'typescript' } },
       emmet_ls = { filetypes = { 'html', 'angular', 'scss', 'css' } },
-      jdtls = {},
+      -- jdtls = { filetypes = {'java' } },
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },

@@ -1,7 +1,5 @@
 require('options.vim-options')
 
--- TODO: Trouble seems needed for java.
-
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -18,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   { import = 'plugins'},
   { import = 'color'},
-  { import = 'debuggers'},
+  -- { import = 'debuggers'},
   { import = 'formatters'},
   { import = 'langs'},
   { import = 'lspconfig'},
