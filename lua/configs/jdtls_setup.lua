@@ -18,7 +18,7 @@ function M.setup()
   local path_to_jdebug = path_to_mason_packages .. "/java-debug-adapter"
   local path_to_jtest = path_to_mason_packages .. "/java-test"
 
-  local path_to_config = path_to_jdtls .. "/config_linux"
+  local path_to_config = path_to_jdtls .. "/config_mac_arm"
   local lombok_path = path_to_jdtls .. "/lombok.jar"
 
   local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar"
