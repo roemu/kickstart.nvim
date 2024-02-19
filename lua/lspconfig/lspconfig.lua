@@ -8,15 +8,12 @@ return {
         ensure_installed = {}
       }
     },
-    { 'williamboman/mason-lspconfig.nvim',
-    opts = {
-        -- handlers = {
-        --   ["jdtls"] = function ()
-        --     require("java").setup()
-        --   end
-        -- }
-      }},
-    { 'j-hui/fidget.nvim',       opts = {} },
+    {
+      'williamboman/mason-lspconfig.nvim',
+      opts = {
+      }
+    },
+    { 'j-hui/fidget.nvim', opts = {} },
     'folke/neodev.nvim',
   },
   opts = {
@@ -80,10 +77,10 @@ return {
     local servers = {
       rust_analyzer = {},
       tsserver = {},
-      html = { filetypes = { 'html'} },
+      html = { filetypes = { 'html' } },
       angularls = { filetypes = { 'angular', 'typescript' } },
       emmet_ls = { filetypes = { 'html', 'angular', 'scss', 'css' } },
-      -- jdtls = { filetypes = {'java' } },
+      jdtls = { },
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
@@ -107,6 +104,9 @@ return {
 
     mason_lspconfig.setup_handlers {
       function(server_name)
+        if server_name == "jdtls" then
+          return
+        end
         require('lspconfig')[server_name].setup {
           capabilities = capabilities,
           on_attach = on_attach,

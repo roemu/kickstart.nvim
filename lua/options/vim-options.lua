@@ -18,12 +18,12 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 vim.cmd(':au BufRead,BufEnter *.component.html set filetype=angular')
--- vim.cmd [[
--- augroup jdtls_lsp
---     autocmd!
---     autocmd FileType java lua require'jdtls.jdtls_setup'.setup()
--- augroup end
--- ]]
+vim.cmd [[
+augroup jdtls_lsp
+    autocmd!
+    autocmd FileType java lua require'configs.jdtls_setup'.setup()
+augroup end
+]]
 -- vim.cmd(":au FileType java lua require'jdtls.jdtls_setup'.setup()")
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
