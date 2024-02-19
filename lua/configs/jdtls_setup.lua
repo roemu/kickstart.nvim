@@ -168,7 +168,7 @@ function M.setup()
       --     runtimes = {
       --         {
       --             name = "java-17-openjdk",
-      --             path = "/usr/lib/jvm/default-runtime/bin/java"
+      --             path = "/Library/Java/JavaVirtualMachines/liberica-jdk-17.jdk/Contents/Home/bin/java"
       --         }
       --     }
       -- }
