@@ -49,6 +49,11 @@ function M.setup()
       hint_prefix = "󱄑 ",
     }, bufnr)
 
+
+    -- vim.keymap.set('n', '<leader>ca', function ()
+    --     vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
+    -- end, {buffer = bufnr, desc = '[C]ode [A]ction'})
+
     -- NOTE: comment out if you don't use Lspsaga
     -- require 'lspsaga'.init_lsp_saga()
 
