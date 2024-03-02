@@ -21,31 +21,7 @@ return {
   },
   config = function()
     local on_attach = function(_, bufnr)
-      local nmap = function(keys, func, desc)
-        if desc then
-          desc = 'LSP: ' .. desc
-        end
-
-        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-      end
-
-      nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-      nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
       -- Create a command `:Format` local to the LSP buffer
-      vim.api.nvim_create_user_command('Format', function(args)
-        local range = nil
-        if args.count ~= -1 then
-          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-          range = {
-            start = { args.line1, 0 },
-            ["end"] = { args.line2, end_line:len() },
-          }
-        end
-        require("conform").format({ async = true, lsp_fallback = true, range = range })
-
-        -- vim.lsp.buf.format()
-      end, { desc = 'Format current buffer with conform and LSP fallback' })
     end
 
     -- document existing key chains
