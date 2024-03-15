@@ -10,6 +10,8 @@ vim.opt.scrolloff = 5
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
+vim.opt.clipboard = "unnamedplus"
+
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
@@ -19,7 +21,6 @@ vim.keymap.set('n', '*', '*zz')
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
-vim.keymap.set('n', '<leader>ef', '', { desc = "[E]rror [F]loat" })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>ef', vim.diagnostic.open_float, { desc = '[E]rror [F]loat' })
@@ -41,7 +42,7 @@ end, { desc = '[C]ode [A]ction' })
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
 
-vim.api.nvim_create_user_command('Format', function(args)
+vim.api.nvim_create_user_command('F', function(args)
   local range = nil
   if args.count ~= -1 then
     local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
