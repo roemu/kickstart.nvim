@@ -20,7 +20,7 @@ return {
 		inlay_hints = { enabled = true }
 	},
 	config = function()
-		local on_attach = function(_, bufnr)
+		local on_attach = function(_, _)
 			-- Create a command `:Format` local to the LSP buffer
 		end
 
