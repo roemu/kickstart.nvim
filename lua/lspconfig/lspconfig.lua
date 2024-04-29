@@ -48,6 +48,7 @@ return {
 			tsserver = {},
 			bashls = { 'sh' },
 			gopls = { 'go' },
+			cssls = { 'css', 'scss', 'sass' },
 			html = { filetypes = { 'html' } },
 			angularls = { filetypes = { 'angular', 'typescript' } },
 			emmet_ls = { filetypes = { 'html', 'angular', 'scss', 'css' } },

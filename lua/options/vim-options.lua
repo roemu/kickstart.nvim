@@ -18,7 +18,7 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-o>', '<C-o>zz')
 vim.keymap.set('n', '*', '*zz')
-vim.keymap.set('n', 'n', '	nzz')
+vim.keymap.set('n', 'n', '    nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 })
 vim.api.nvim_create_autocmd('BufWritePre', {
 	group = 'EditingHelper',
-	pattern = '*.java',
+	pattern = '.java',
 	command = [[%s/\t/    /g]],
 })
 
@@ -63,7 +63,7 @@ vim.api.nvim_create_user_command('F', function(args)
 			["end"] = { args.line2, end_line:len() },
 		}
 	end
-	require("conform").format({ async = true, lsp_fallback = true, range = range })
+	require("conform").format({ async = false, lsp_fallback = true, range = range })
 end, { desc = 'Format current buffer with conform and LSP fallback' })
 -- end LSP and File
 
@@ -107,4 +107,3 @@ vim.api.nvim_create_autocmd('FileType', {
 	end,
 })
 -- end telescope requirement
-
