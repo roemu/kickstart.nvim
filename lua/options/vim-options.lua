@@ -4,6 +4,8 @@ vim.g.loaded_netrwPlugin = 1;
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.o.shell = "/bin/zsh -i"
+
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.scrolloff = 5
@@ -13,6 +15,7 @@ vim.opt.tabstop = 4
 vim.opt.clipboard = "unnamedplus"
 
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('n', '<leader>rt', [[:execute '%s/\t/    /g'<CR>]])
 
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
@@ -25,6 +28,9 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>ef', vim.diagnostic.open_float, { desc = '[E]rror [F]loat' })
 vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = '[E]rror [L]ist' })
+
+vim.api.nvim_set_keymap("n", "gx", [[:execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], {})
+vim.keymap.set("n", "<leader>gcw", [[:%s/<C-r><C-w>//g<Left><Left>]])
 
 vim.api.nvim_create_augroup('EditingHelper', { clear = false })
 vim.api.nvim_create_autocmd('BufWritePre', {

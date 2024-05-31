@@ -27,9 +27,7 @@ return {
 			}
 		}
 	},
-	keys = function()
-		return {
-			{ "<leader>nt", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Neotree" },
-		}
-	end,
+	keys = {
+		{ "<leader>nt", "<cmd>NvimTreeToggle<cr>", desc = "Toggle Neotree" },
+	},
 }

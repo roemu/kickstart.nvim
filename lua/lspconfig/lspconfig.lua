@@ -13,7 +13,7 @@ return {
 			opts = {
 			}
 		},
-		{ 'j-hui/fidget.nvim', opts = {} },
+		{ 'j-hui/fidget.nvim', lazy = true, opts = {} },
 		'folke/neodev.nvim',
 	},
 	opts = {
@@ -45,6 +45,20 @@ return {
 
 		local servers = {
 			rust_analyzer = {},
+			jsonls = { filetypes = { 'json' } },
+			yamlls = {
+				filetypes = { 'yaml' },
+				yaml = {
+					validate = true,
+					schemaStore = {
+						enable = false,
+						url = "",
+					},
+					schemas = {
+						['https://clew-resources.sbb-cloud.net/tekton-schema.json'] = 'estaTektonPipeline.{yaml,yml}',
+					}
+				},
+			},
 			tsserver = {},
 			bashls = { 'sh' },
 			gopls = { 'go' },
@@ -58,7 +72,7 @@ return {
 					telemetry = { enable = false },
 				},
 			},
-			jdtls = { },
+			jdtls = { filetypes = { 'java' } },
 		}
 		-- Setup neovim lua configuration
 		require('neodev').setup()
@@ -66,6 +80,7 @@ return {
 		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+		capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 		-- Ensure the servers above are installed
 		local mason_lspconfig = require 'mason-lspconfig'
