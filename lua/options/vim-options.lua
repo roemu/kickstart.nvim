@@ -30,7 +30,7 @@ vim.keymap.set('n', '<leader>ef', vim.diagnostic.open_float, { desc = '[E]rror [
 vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = '[E]rror [L]ist' })
 
 vim.api.nvim_set_keymap("n", "gx", [[:execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], {})
-vim.keymap.set("n", "<leader>gcw", [[:%s/<C-r><C-w>//g<Left><Left>]])
+vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>//g<Left><Left>]])
 
 vim.api.nvim_create_augroup('EditingHelper', { clear = false })
 vim.api.nvim_create_autocmd('BufWritePre', {
