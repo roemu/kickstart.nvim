@@ -1,7 +1,7 @@
 return {
 	'stevearc/oil.nvim',
 	keys = {
-		{ "<leader>op", "<cmd>Oil --float<cr>", desc = "Open Oil in parent directory" },
+		{ "<leader>op", "<cmd>Oil<cr>", desc = "Open Oil in parent directory" },
 	},
 	opts = {
 		default_file_explorer = true,

@@ -103,7 +103,8 @@ function M.setup()
 			format = {
 			  enabled = true,
 			  settings = {
-			    url = vim.fn.stdpath("config") .. "/lang_servers/intellij-java-google-style.xml",
+			    -- url = vim.fn.stdpath("config") .. "/lua/configs/intellij-java-format.xml",
+			    url = "~/.config/nvim/" .. "lua/configs/intellij-java-format.xml",
 			    profile = "GoogleStyle",
 			  },
 			},

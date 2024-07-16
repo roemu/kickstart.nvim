@@ -1,6 +1,7 @@
 return {
 	-- Highlight, edit, and navigate code
 	'nvim-treesitter/nvim-treesitter',
+	event = "BufEnter",
 	dependencies = {
 		'nvim-treesitter/nvim-treesitter-textobjects',
 	},
@@ -8,7 +9,24 @@ return {
 	config = function()
 		vim.defer_fn(function()
 			require('nvim-treesitter.configs').setup {
-				ensure_installed = { 'make', 'lua', 'pkl', 'rust', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'java', 'angular', 'html', 'css', 'scss', 'yaml', 'go' },
+				ensure_installed = { 'make',
+					'helm',
+					'lua',
+					'pkl',
+					'rust',
+					'javascript',
+					'typescript',
+					'vimdoc',
+					'vim',
+					'bash',
+					'java',
+					'angular',
+					'html',
+					'css',
+					'scss',
+					'yaml',
+					'go'
+				},
 
 				auto_install = false,
 				sync_install = false,

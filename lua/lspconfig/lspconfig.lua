@@ -1,5 +1,6 @@
 return {
 	'neovim/nvim-lspconfig',
+	event = 'VeryLazy',
 	dependencies = {
 		{
 			'williamboman/mason.nvim',
@@ -44,6 +45,7 @@ return {
 		require('mason-lspconfig').setup()
 
 		local servers = {
+			helm_ls = { filetypes = { 'helm' } },
 			rust_analyzer = {},
 			jsonls = { filetypes = { 'json' } },
 			yamlls = {
@@ -60,9 +62,9 @@ return {
 				},
 			},
 			tsserver = {},
-			bashls = { 'sh' },
-			gopls = { 'go' },
-			cssls = { 'css', 'scss', 'sass' },
+			bashls = { filetypes = { 'sh' } },
+			gopls = { filetypes = { 'go' } },
+			cssls = { filetypes = { 'css', 'scss', 'sass' } },
 			html = { filetypes = { 'html' } },
 			angularls = { filetypes = { 'angular', 'typescript' } },
 			emmet_ls = { filetypes = { 'html', 'angular', 'scss', 'css' } },

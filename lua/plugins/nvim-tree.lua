@@ -1,7 +1,6 @@
 return {
 	"nvim-tree/nvim-tree.lua",
 	version = "*",
-	lazy = false,
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
@@ -14,13 +13,7 @@ return {
 			width = {}
 		},
 		update_focused_file = { enable = true },
-		filters = {
-			git_ignored = false,
-			custom = {
-				'\\.git$',
-				'node_modules'
-			}
-		},
+		filters = {},
 		actions = {
 			open_file = {
 				quit_on_open = true

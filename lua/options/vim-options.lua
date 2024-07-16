@@ -1,10 +1,10 @@
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1;
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1;
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.o.shell = "/bin/zsh -i"
+-- vim.o.shell = "/bin/zsh -i"
 
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -31,6 +31,7 @@ vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = '[E]rror [
 
 vim.api.nvim_set_keymap("n", "gx", [[:execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], {})
 vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>//g<Left><Left>]])
+vim.keymap.set('n', '<leader>ts', '<cmd>!~/.config/tmux/tmux-sesh.sh<CR>', { desc = '[T]mux [S]essions' })
 
 vim.api.nvim_create_augroup('EditingHelper', { clear = false })
 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -60,16 +61,16 @@ end, { desc = '[C]ode [A]ction' })
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature Documentation' })
 
-vim.api.nvim_create_user_command('F', function(args)
-	local range = nil
-	if args.count ~= -1 then
-		local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
-		range = {
-			start = { args.line1, 0 },
-			["end"] = { args.line2, end_line:len() },
-		}
-	end
-	require("conform").format({ async = false, lsp_fallback = true, range = range })
+vim.api.nvim_create_user_command('F', function(_)
+	-- local range = nil
+	-- if args.count ~= -1 then
+	-- 	local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+	-- 	range = {
+	-- 		start = { args.line1, 0 },
+	-- 		["end"] = { args.line2, end_line:len() },
+	-- 	}
+	-- end
+	require("conform").format({ async = false, lsp_fallback = true })
 end, { desc = 'Format current buffer with conform and LSP fallback' })
 -- end LSP and File
 
