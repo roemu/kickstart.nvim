@@ -19,7 +19,7 @@ require('lazy').setup(
     { import = 'color' },
     { import = 'debuggers' },
     { import = 'formatters' },
-    { import = 'langs' },
+    { import = 'jdtls' },
     { import = 'lspconfig' },
   },
   {

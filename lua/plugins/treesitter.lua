@@ -12,7 +12,6 @@ return {
 				ensure_installed = { 'make',
 					'helm',
 					'lua',
-					'pkl',
 					'rust',
 					'javascript',
 					'typescript',

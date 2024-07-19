@@ -12,7 +12,6 @@ return {
 			automatic_setup = true,
 			handlers = {},
 			ensure_installed = {
-				'javatest',
 				'javadbg',
 				'delve',
 			},

@@ -74,7 +74,6 @@ return {
 					telemetry = { enable = false },
 				},
 			},
-			jdtls = { filetypes = { 'java' } },
 		}
 		-- Setup neovim lua configuration
 		require('neodev').setup()
@@ -93,15 +92,14 @@ return {
 
 		mason_lspconfig.setup_handlers {
 			function(server_name)
-				if server_name == "jdtls" then
-					return
+				if server_name ~= 'jdtls' then
+					require('lspconfig')[server_name].setup {
+						capabilities = capabilities,
+						on_attach = on_attach,
+						settings = servers[server_name],
+						filetypes = (servers[server_name] or {}).filetypes,
+					}
 				end
-				require('lspconfig')[server_name].setup {
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = servers[server_name],
-					filetypes = (servers[server_name] or {}).filetypes,
-				}
 			end,
 		}
 	end
