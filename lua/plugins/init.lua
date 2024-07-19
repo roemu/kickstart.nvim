@@ -3,8 +3,14 @@ return {
 	'tpope/vim-fugitive',
 
 	-- Useful plugin to show you pending keybinds.
-	{ 'folke/which-key.nvim',  opts = {}, event = "BufEnter" },
-	{ 'numToStr/Comment.nvim', opts = {}, event = "VeryLazy" },
+	{
+		'folke/which-key.nvim',
+		opts = {
+			delay = 1000
+		},
+		event = "BufEnter"
+	},
+	{ 'numToStr/Comment.nvim', opts = {},             event = "VeryLazy" },
 	{
 		-- Add indentation guides even on blank lines
 		'lukas-reineke/indent-blankline.nvim',
@@ -19,8 +25,8 @@ return {
 		event = "BufEnter",
 		opts = {},
 	},
-	{ 'towolf/vim-helm',  ft = { 'yaml', 'yml' } },
-	{ 'apple/pkl-neovim', ft = { 'pkl' } },
+	{ 'towolf/vim-helm',       ft = { 'yaml', 'yml' } },
+	{ 'apple/pkl-neovim',      ft = { 'pkl' } },
 	{
 		'lucidph3nx/nvim-sops',
 		event = 'BufEnter',

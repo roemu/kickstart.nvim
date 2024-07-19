@@ -1,0 +1,11 @@
+snippet if "@if ()"
+	@if ($1) {
+		$0
+	}
+
+snippet if-else "@if () @else"
+	@if ($2) {
+		$1
+	} @else {
+		$0
+	}

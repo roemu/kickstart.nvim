@@ -31,7 +31,7 @@ vim.keymap.set('n', '<leader>el', vim.diagnostic.setloclist, { desc = '[E]rror [
 
 vim.api.nvim_set_keymap("n", "gx", [[:execute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]], {})
 vim.keymap.set("n", "<leader>rw", [[:%s/<C-r><C-w>//g<Left><Left>]])
-vim.keymap.set('n', '<leader>ts', '<cmd>!~/.config/tmux/tmux-sesh.sh<CR>', { desc = '[T]mux [S]essions' })
+vim.keymap.set('n', '<leader>ts', '<cmd>silent exec "!~/.config/tmux/tmux-sesh.sh"<CR>', { desc = '[T]mux [S]essions' })
 
 vim.api.nvim_create_augroup('EditingHelper', { clear = false })
 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -47,12 +47,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 -- LSP and File
 vim.cmd(':au BufRead,BufEnter *.component.html set filetype=angular')
-vim.cmd [[
-augroup jdtls_lsp
-    autocmd!
-    autocmd FileType java lua require'configs.jdtls_setup'.setup()
-augroup end
-]]
 
 vim.keymap.set('n', '<leader>cA', function()
 	vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
